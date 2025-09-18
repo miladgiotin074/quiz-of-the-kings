@@ -23,8 +23,10 @@ export async function init(options: {
   mockForMacOS: boolean;
 }): Promise<void> {
   // Set @telegram-apps/sdk-react debug mode and initialize it.
+   console.log('init.ts')
   setDebug(options.debug);
   initSDK();
+
 
 
 

@@ -49,6 +49,7 @@ function RootInner({ children }: PropsWithChildren) {
 }
 
 export function Root(props: PropsWithChildren) {
+   console.log('Root.tsx')
   const didMount = useDidMount();
   const router = useRouter();
   const t = useTranslations('root');
