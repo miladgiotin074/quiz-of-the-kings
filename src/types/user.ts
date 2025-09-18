@@ -31,12 +31,13 @@ export interface UserContextType {
   user: User | null;
   isLoading: boolean;
   error: string | null;
-  login: (telegramUser: TelegramUser) => Promise<void>;
+  login: (user: User) => Promise<void>;
   logout: () => void;
   updateUser: (updates: Partial<User>) => Promise<void>;
   addCoins: (amount: number) => Promise<void>;
   addXP: (amount: number) => Promise<void>;
   addScore: (amount: number) => Promise<void>;
+  authenticateWithTelegram: (rawInitData: string) => Promise<void>;
   retry: () => void;
 }
 

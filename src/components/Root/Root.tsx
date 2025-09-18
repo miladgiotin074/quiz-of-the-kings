@@ -25,7 +25,6 @@ function RootInner({ children }: PropsWithChildren) {
   const locale = useLocale();
 
   const isDark = useSignal(miniApp.isDark);
-  const initDataUser = useSignal(initData.user);
 
   // Note: Default locale (English) is used instead of user's Telegram language
 
@@ -49,7 +48,6 @@ function RootInner({ children }: PropsWithChildren) {
 }
 
 export function Root(props: PropsWithChildren) {
-   console.log('Root.tsx')
   const didMount = useDidMount();
   const router = useRouter();
   const t = useTranslations('root');
@@ -59,7 +57,7 @@ export function Root(props: PropsWithChildren) {
   const [showWelcome, setShowWelcome] = useState(false);
   const initDataUser = useSignal(initData.user);
   const RawInitData = useSignal(initData.raw);
-  const { login } = useUser();
+  const { login, authenticateWithTelegram } = useUser();
 
   // Handle onboarding completion
   const handleWelcomeComplete = () => {
@@ -79,43 +77,12 @@ export function Root(props: PropsWithChildren) {
           return;
         }
 
-        console.log('📡 Sending authentication request to server...');
-        
-        // Send request to server with initData in headers for validation
-        const response = await fetch('/api/users', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Telegram-Init-Data': RawInitData,
-          },
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          console.log('❌ Server validation failed:', errorData);
-          
-          if (response.status === 401) {
-            setAuthError(t('errors.invalidAuth'));
-          } else {
-            setAuthError(t('errors.serverError'));
-          }
-          setIsLoading(false);
-          return;
-        }
-
-        const result = await response.json();
-        console.log('✅ Authentication successful:', result);
-        
-        if (result.isNewUser) {
-          console.log('🎉 New user created successfully');
-        } else {
-          console.log('👋 Existing user authenticated');
-        }
-
-        // Set user in UserContext
-        login(result.user);
+        // Use UserContext's authenticateWithTelegram function
+        await authenticateWithTelegram(RawInitData);
         
         setIsAuthenticated(true);
+        
+        console.log('🎉 Authentication completed successfully');
         
         // Check if user has seen onboarding
         const hasSeenOnboarding = localStorage.getItem('onboardingCompleted');
@@ -127,7 +94,16 @@ export function Root(props: PropsWithChildren) {
         
       } catch (error: any) {
         console.log('❌ App initialization failed:', error);
-        setAuthError(t('errors.loadingError'));
+        
+        // Handle different types of authentication errors
+        if (error.message === 'Invalid authentication') {
+          setAuthError(t('errors.invalidAuth'));
+        } else if (error.message === 'Server error') {
+          setAuthError(t('errors.serverError'));
+        } else {
+          setAuthError(t('errors.loadingError'));
+        }
+        
         setIsLoading(false);
       }
     };

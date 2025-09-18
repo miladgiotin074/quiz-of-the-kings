@@ -1,8 +1,6 @@
 import { User, TelegramUser, UpdateUserRequest, AddCoinsRequest, AddXPRequest, AddScoreRequest, AuthResponse } from '@/types/user';
 import { authenticatedRequest } from '@/lib/telegramAuth';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
-
 class UserService {
   private baseURL: string;
 

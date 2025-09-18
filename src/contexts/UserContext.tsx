@@ -60,26 +60,23 @@ interface UserProviderProps {
 
 export function UserProvider({ children }: UserProviderProps) {
   const [state, dispatch] = useReducer(userReducer, initialState);
-
-  // Login function
-  const login = async (telegramUser: TelegramUser): Promise<void> => {
+  // Login function - only sets user in state (no API call)
+  const login = async (user: User): Promise<void> => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'SET_ERROR', payload: null });
 
-      const result = await userService.findOrCreateUser(telegramUser);
-      dispatch({ type: 'SET_USER', payload: result.user });
+      // Simply set the user in state and localStorage
+      dispatch({ type: 'SET_USER', payload: user });
+      localStorage.setItem('user', JSON.stringify(user));
       
-      // Store user in localStorage for persistence
-      localStorage.setItem('user', JSON.stringify(result.user));
-      
-      if (result.isNewUser) {
-        console.log('New user created:', result.user.firstName);
-      }
+      console.log('✅ User logged in:', user.firstName);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Authentication failed';
+      const errorMessage = error instanceof Error ? error.message : 'Login failed';
       dispatch({ type: 'SET_ERROR', payload: errorMessage });
       console.error('Login failed:', error);
+    } finally {
+      dispatch({ type: 'SET_LOADING', payload: false });
     }
   };
 
@@ -87,6 +84,55 @@ export function UserProvider({ children }: UserProviderProps) {
   const logout = (): void => {
     dispatch({ type: 'LOGOUT' });
     localStorage.removeItem('user');
+  };
+
+  // Authenticate with Telegram function
+  const authenticateWithTelegram = async (rawInitData: string): Promise<void> => {
+    try {
+      dispatch({ type: 'SET_LOADING', payload: true });
+      dispatch({ type: 'SET_ERROR', payload: null });
+
+      console.log('📡 Sending authentication request to server...');
+      
+      // Send request to server with initData in headers
+      const response = await fetch('/api/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Telegram-Init-Data': rawInitData,
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.log('❌ Server validation failed:', errorData);
+        
+        if (response.status === 401) {
+          throw new Error('Invalid authentication');
+        } else {
+          throw new Error('Server error');
+        }
+      }
+
+      const result = await response.json();
+      console.log('✅ Authentication successful:', result);
+      
+      // Store user in state and localStorage
+      dispatch({ type: 'SET_USER', payload: result.user });
+      localStorage.setItem('user', JSON.stringify(result.user));
+      
+      if (result.isNewUser) {
+        console.log('🎉 New user created successfully');
+      } else {
+        console.log('👋 Existing user authenticated');
+      }
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Authentication failed';
+      dispatch({ type: 'SET_ERROR', payload: errorMessage });
+      console.error('Authentication failed:', error);
+      throw error;
+    }
   };
 
   // Update user function
@@ -232,6 +278,7 @@ export function UserProvider({ children }: UserProviderProps) {
     addCoins,
     addXP,
     addScore,
+    authenticateWithTelegram,
     retry,
   };
 

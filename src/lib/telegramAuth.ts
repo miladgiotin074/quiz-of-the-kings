@@ -6,6 +6,7 @@ import { retrieveRawInitData } from '@telegram-apps/sdk-react';
  */
 export function getTelegramInitData(): string | null {
   try {
+    console.log("telegramAuth")
     // Get the raw init data using the new SDK method
     const rawInitData = retrieveRawInitData();
     

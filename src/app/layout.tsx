@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: PropsWithChildren) {
   const locale = await getLocale();
   const direction = locale === 'fa' ? 'rtl' : 'ltr';
-  console.log('layout.tsx')
 
   return (
     <html lang={locale} dir={direction} suppressHydrationWarning>
