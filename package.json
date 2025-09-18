@@ -12,7 +12,6 @@
   "dependencies": {
     "@telegram-apps/init-data-node": "^2.0.10",
     "@telegram-apps/sdk-react": "^3.2.4",
-    "@tma.js/init-data-node": "^2.0.0",
     "lucide-react": "^0.544.0",
     "mongoose": "^8.18.1",
     "next": "15.3.1",
