@@ -15,7 +15,7 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
     {
       title: t('steps.0.title'),
       description: t('steps.0.description'),
-      icon: '🧠',
+      icon: '👑',
     },
     {
       title: t('steps.1.title'),
