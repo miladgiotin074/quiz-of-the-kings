@@ -1,0 +1,125 @@
+{
+  "common": {
+    "back": "Back"
+  },
+  "root": {
+    "loading": {
+      "title": "Loading...",
+      "subtitle": "Please wait"
+    },
+    "errors": {
+      "noInitData": "Unauthorized access: Telegram data not available",
+      "invalidAuth": "Unauthorized access: Invalid Telegram information",
+      "serverError": "Server connection error",
+      "loadingError": "Application loading error",
+      "authTitle": "Authentication Error",
+      "retry": "Try Again"
+    }
+  },
+  "i18n": {
+    "header": "Application supports i18n",
+    "footer": "You can select a different language from the dropdown menu."
+  },
+  "navigation": {
+    "home": "Home",
+    "chats": "Chats",
+    "notifications": "Notifications",
+    "settings": "Settings"
+  },
+  "config": {
+    "title": "App Configuration",
+    "version": "Version",
+    "status": "Status",
+    "features": "Features",
+    "maintenance": "Maintenance"
+  },
+  "welcome": {
+    "skip": "Skip",
+    "next": "Next",
+    "getStarted": "Get Started",
+    "of": "of",
+    "steps": {
+      "0": {
+        "title": "Welcome to Quiz Of The Kings",
+        "description": "Challenge your mind with exciting quiz competitions and test your knowledge across various topics."
+      },
+      "1": {
+        "title": "Real-time Competitions",
+        "description": "Compete with players from around the world in live quiz battles and climb the leaderboards."
+      },
+      "2": {
+        "title": "Earn Rewards",
+        "description": "Win coins, unlock achievements, and become the ultimate quiz champion in Quiz Of the Kings."
+      }
+    }
+  },
+  "home": {
+    "welcome": "Welcome to Brain Arena",
+    "subtitle": "Test your knowledge in exciting quiz competitions",
+    "startQuiz": "Start Quiz",
+    "startNewGame": "Start New Game",
+    "challengeYourself": "Challenge yourself and compete with others",
+    "selectLanguage": "Select Language",
+    "loading": "Loading...",
+    "profile": {
+      "guestUser": "Guest User",
+      "level": "Beginner Level",
+      "score": "Score",
+      "coins": "Coins",
+      "rank": "Rank #--",
+      "thisWeek": "This Week",
+      "progressToNext": "Progress to next level",
+      "xp": "XP"
+    },
+    "game": {
+      "hoursAgo": "hours ago",
+      "dayAgo": "day ago",
+      "yourTurn": "Your Turn",
+      "opponentTurn": "Opponent's Turn",
+      "waiting": "Waiting",
+      "yourMove": "Your Move",
+      "theirMove": "Their Move",
+      "thinking": "Thinking",
+      "gameStarted": "Game started",
+      "finishedGames": "Finished Games",
+      "won": "Won",
+      "lost": "Lost",
+      "finished": "Finished"
+    }
+  },
+  "chats": {
+    "title": "Chats",
+    "noChats": "No active chats",
+    "startConversation": "Start a conversation"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNotifications": "No new notifications",
+    "markAllRead": "Mark all as read"
+  },
+"settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "about": "About"
+  },
+  "auth": {
+    "error": {
+      "signatureInvalid": "Authentication Failed",
+      "signatureInvalidDesc": "The authentication signature is invalid. Please restart the app from Telegram.",
+      "authDateInvalid": "Authentication Expired",
+      "authDateInvalidDesc": "The authentication date is invalid or missing. Please restart the app.",
+      "expired": "Session Expired",
+      "expiredDesc": "Your session has expired. Please restart the app from Telegram.",
+      "signatureMissing": "Missing Authentication",
+      "signatureMissingDesc": "Authentication signature is missing. Please restart the app from Telegram.",
+      "unknown": "Authentication Error",
+      "unknownDesc": "An unknown authentication error occurred. Please try again.",
+      "technicalDetails": "Technical Details",
+      "retry": "Try Again",
+      "contactSupport": "If the problem persists, please contact support."
+    }
+  }
+}
