@@ -118,7 +118,7 @@ export function Root(props: PropsWithChildren) {
         
         // Check if user has seen onboarding
         const hasSeenOnboarding = localStorage.getItem('onboardingCompleted');
-        if (!hasSeenOnboarding) {
+        if (hasSeenOnboarding) {
           setShowWelcome(true);
         }
         
