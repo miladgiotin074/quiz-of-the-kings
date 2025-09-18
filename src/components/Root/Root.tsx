@@ -154,8 +154,6 @@ export function Root(props: PropsWithChildren) {
           <div className="relative mb-4">
             <div className="w-12 h-12 border-4 border-gray-700 border-t-blue-500 rounded-full animate-spin"></div>
           </div>
-          <p className='text-white text-lg'>{t('loading.title')}</p>
-          <p className='text-gray-400 text-sm mt-2'>{t('loading.subtitle')}</p>
         </div>
       </div>
     );
