@@ -79,18 +79,18 @@ export default function GameRoomPage() {
 
   return (
     <Page>
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      <div className="min-h-screen bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-black/90 relative overflow-hidden">
+        {/* Background effects */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/8 via-purple-500/8 to-pink-500/8"></div>
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-blue-500/15 to-transparent rounded-full blur-xl"></div>
+          <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-lg"></div>
         </div>
 
         <div className="relative z-10 p-6">
           <div className="max-w-md mx-auto">
             {/* Game Header */}
-            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 mb-6 border border-white/20 shadow-2xl">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-6 mb-6 border border-slate-700/50 shadow-2xl">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-glow">
@@ -103,7 +103,7 @@ export default function GameRoomPage() {
                 </div>
                 <button 
                   onClick={handleQuit}
-                  className="text-gray-300 hover:text-gray-200 text-sm px-4 py-2 rounded-xl border border-gray-600/30 hover:bg-gray-700/20 transition-all duration-300 backdrop-blur-sm font-medium"
+                  className="text-slate-300 hover:text-slate-200 text-sm px-4 py-2 rounded-xl border border-slate-600/30 hover:bg-slate-700/20 transition-all duration-300 backdrop-blur-sm font-medium"
                 >
                   {t('room.quit')}
                 </button>
@@ -112,10 +112,10 @@ export default function GameRoomPage() {
               {/* Round Progress */}
               <div className="mb-4">
                 <div className="flex items-center justify-between text-sm mb-2">
-                  <span className="text-gray-300 font-medium">{t('room.round')} {mockGameState.currentRound}/{mockGameState.totalRounds}</span>
+                  <span className="text-slate-300 font-medium">{t('room.round')} {mockGameState.currentRound}/{mockGameState.totalRounds}</span>
                   <span className="text-purple-400 font-semibold bg-purple-500/20 px-2 py-1 rounded-full text-xs">{t('room.topicSelection')}</span>
               </div>
-                <div className="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
+                <div className="w-full bg-slate-700/50 rounded-full h-2 overflow-hidden">
                   <div 
                     className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-500 shadow-glow"
                     style={{ width: `${(mockGameState.currentRound / mockGameState.totalRounds) * 100}%` }}
@@ -124,7 +124,7 @@ export default function GameRoomPage() {
               </div>
 
               {/* Players */}
-              <div className="bg-gray-800/30 rounded-xl p-3 border border-gray-700/30">
+              <div className="bg-slate-800/30 rounded-xl p-3 border border-slate-700/30">
                 <div className="flex items-center justify-between">
                   {/* Current Player */}
                   <div className="flex items-center space-x-2 rtl:space-x-reverse">
@@ -137,7 +137,7 @@ export default function GameRoomPage() {
                     <div>
                       <p className="font-bold text-white text-base">{mockPlayer.name}</p>
                       <div className="flex items-center space-x-1 rtl:space-x-reverse">
-                        <span className="text-xs text-gray-300">{t('room.score')}:</span>
+                        <span className="text-xs text-slate-300">{t('room.score')}:</span>
                         <span className="text-blue-400 font-bold text-sm">{mockPlayer.score}</span>
                       </div>
                     </div>
@@ -148,7 +148,7 @@ export default function GameRoomPage() {
                     <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center shadow-glow">
                       <span className="text-white font-bold text-xs">VS</span>
                     </div>
-                    <div className="text-xs text-gray-400 font-medium mt-0.5">{t('room.battle')}</div>
+                    <div className="text-xs text-slate-400 font-medium mt-0.5">{t('room.battle')}</div>
                   </div>
 
                   {/* Opponent */}
@@ -156,7 +156,7 @@ export default function GameRoomPage() {
                     <div className="text-right rtl:text-left">
                       <p className="font-bold text-white text-base">{mockOpponent.name}</p>
                       <div className="flex items-center justify-end space-x-1 rtl:space-x-reverse rtl:justify-start">
-                        <span className="text-xs text-gray-300">{t('room.score')}:</span>
+                        <span className="text-xs text-slate-300">{t('room.score')}:</span>
                         <span className="text-purple-400 font-bold text-sm">{mockOpponent.score}</span>
                       </div>
                     </div>
@@ -172,7 +172,7 @@ export default function GameRoomPage() {
             </div>
 
             {/* Game Content */}
-            <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/20 shadow-2xl">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 border border-slate-700/50 shadow-2xl">
               {!selectedTopic ? (
                 <div>
                   <div className="text-center mb-5">
@@ -196,7 +196,7 @@ export default function GameRoomPage() {
                         <button
                           key={topic.id}
                           onClick={() => handleTopicSelect(topic.name)}
-                          className="w-full p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-xl text-left transition-all duration-300 border border-gray-700/50 hover:border-blue-500/50 group hover:scale-[1.02] active:scale-95 backdrop-blur-sm"
+                          className="w-full p-3 bg-slate-800/50 hover:bg-slate-700/50 rounded-xl text-left transition-all duration-300 border border-slate-700/50 hover:border-blue-500/50 group hover:scale-[1.02] active:scale-95 backdrop-blur-sm"
                         >
                           <div className="flex items-center space-x-3 rtl:space-x-reverse">
                             <div className="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform border border-blue-500/30">
@@ -204,7 +204,7 @@ export default function GameRoomPage() {
                             </div>
                             <div className="flex-1">
                               <div className="font-bold text-white text-base mb-0.5">{topic.name}</div>
-                              <div className="text-gray-300 text-xs leading-relaxed">{topic.description}</div>
+                              <div className="text-slate-300 text-xs leading-relaxed">{topic.description}</div>
                             </div>
                             <div className="text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -227,7 +227,7 @@ export default function GameRoomPage() {
                         </div>
                       </div>
                       <h3 className="text-lg font-bold text-white mb-1">{t('room.waitingMessage')}</h3>
-                      <p className="text-gray-300 text-sm">{t('room.opponentThinking')}</p>
+                      <p className="text-slate-300 text-sm">{t('room.opponentThinking')}</p>
                     </div>
                   )}
                 </div>
@@ -240,10 +240,10 @@ export default function GameRoomPage() {
                     <div className="w-12 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto"></div>
                   </div>
                   <h2 className="text-lg font-bold text-white mb-2">{t('room.topicSelected')}</h2>
-                  <div className="bg-gray-800/50 rounded-xl p-3 border border-gray-700/50 mb-3">
+                  <div className="bg-slate-800/50 rounded-xl p-3 border border-slate-700/50 mb-3">
                     <p className="text-purple-400 text-base font-bold">{selectedTopic}</p>
                   </div>
-                  <p className="text-gray-300 text-sm leading-relaxed">{t('room.startingQuestions')}</p>
+                  <p className="text-slate-300 text-sm leading-relaxed">{t('room.startingQuestions')}</p>
                   <div className="mt-4">
                     <div className="flex justify-center space-x-1 rtl:space-x-reverse">
                       <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-bounce"></div>

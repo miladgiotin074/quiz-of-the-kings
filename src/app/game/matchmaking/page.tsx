@@ -72,15 +72,11 @@ export default function MatchmakingPage() {
   // Handle game starting after opponent is found
   useEffect(() => {
     if (matchmakingStatus === 'found') {
-      const startTimeout = setTimeout(() => {
-        setMatchmakingStatus('starting');
-        const gameTimeout = setTimeout(() => {
-          router.push('/game/room');
-        }, 2000);
-        return () => clearTimeout(gameTimeout);
-      }, 3000);
+      const gameTimeout = setTimeout(() => {
+        router.push('/game/room');
+      }, 3000); // Go directly to game after 3 seconds
       
-      return () => clearTimeout(startTimeout);
+      return () => clearTimeout(gameTimeout);
     }
   }, [matchmakingStatus, router]);
 
