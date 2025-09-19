@@ -164,18 +164,7 @@ export default function MatchmakingPage() {
             </div>
           )}
 
-          {matchmakingStatus === 'starting' && (
-            <div className="flex-1 flex flex-col justify-center items-center">
-              <div className="mb-8">
-                <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center animate-pulse">
-                  <span className="text-6xl">🚀</span>
-                </div>
-                <div className="w-24 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto animate-pulse"></div>
-              </div>
-              <h2 className="text-3xl font-bold text-white mb-4">{t('game.matchmaking.starting')}</h2>
-               <p className="text-slate-300 text-lg mb-8">{t('game.matchmaking.startingMessage')}</p>
-            </div>
-          )}
+
           </div>
 
           {/* Bottom section */}
