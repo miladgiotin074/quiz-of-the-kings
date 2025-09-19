@@ -113,7 +113,7 @@ export default function GameRoomPage() {
 
   return (
     <Page>
-      <div className="bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-black/90 relative">
+      <div className="min-h-screen bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-black/90 relative">
         {/* Background effects */}
         <div className="absolute inset-0 min-h-full">
           <div className="absolute inset-0 min-h-full bg-gradient-to-br from-blue-500/8 via-purple-500/8 to-pink-500/8"></div>
