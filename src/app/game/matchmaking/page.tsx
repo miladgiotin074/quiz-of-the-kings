@@ -141,7 +141,7 @@ export default function MatchmakingPage() {
           {matchmakingStatus === 'found' && (
             <div className="flex-1 flex flex-col justify-center items-center">
               <div className="mb-8">
-                <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center animate-bounce">
+                <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center animate-pulse">
                   <span className="text-6xl text-white">✓</span>
                 </div>
                 <div className="w-24 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto animate-pulse"></div>
