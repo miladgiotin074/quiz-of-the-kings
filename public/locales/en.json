@@ -140,7 +140,8 @@
       "quit": "Quit Game",
       "gameRounds": "Game Rounds",
       "roundsDescription": "6 rounds of exciting questions",
-      "playNow": "Play Now"
+      "playNow": "Play Now",
+      "chatWithUser": "Chat with User"
     },
     "topics": {
       "science": "Science",

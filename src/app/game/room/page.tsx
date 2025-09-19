@@ -113,7 +113,7 @@ export default function GameRoomPage() {
 
   return (
     <Page>
-      <div className="min-h-screen bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-black/90 relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-black/90 relative">
         {/* Background effects */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/8 via-purple-500/8 to-pink-500/8"></div>
@@ -121,118 +121,77 @@ export default function GameRoomPage() {
           <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-lg"></div>
         </div>
 
-        <div className="relative z-10 px-2 py-2">
+        <div className="relative z-10 px-2 py-2 pb-8">
           <div className="max-w-md mx-auto">
             {/* Players Header */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-slate-700/50 shadow-2xl">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-slate-700/50 shadow-xl">
               <div className="flex items-center justify-between">
                 {/* Current Player */}
-                  <div className="flex items-center space-x-4 rtl:space-x-reverse">
+                  <div className="flex items-center space-x-3 rtl:space-x-reverse">
                     <div className="relative">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-xl shadow-blue-500/30">
-                        <span className="text-2xl font-bold text-white">{mockPlayer.name.charAt(0)}</span>
+                      <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-glow">
+                        <span className="text-xl font-bold text-white">{mockPlayer.name.charAt(0)}</span>
                       </div>
-                      <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-3 border-slate-800 shadow-lg animate-pulse"></div>
+                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
                     </div>
                     <div>
-                      <div className="flex items-center space-x-2 rtl:space-x-reverse mb-1">
-                        <h3 className="text-white font-bold text-xl">{mockPlayer.name}</h3>
-                        <span className="text-xs text-slate-300 bg-slate-700/70 px-3 py-1 rounded-full font-medium">Lv.{mockPlayer.level}</span>
-                      </div>
+                      <p className="font-bold text-white text-lg">{mockPlayer.name}</p>
                       <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                        <span className="text-blue-400 font-bold text-2xl">{mockPlayer.score}</span>
-                        <span className="text-xs text-blue-300 font-medium">points</span>
+                        <span className="text-blue-400 font-bold text-xl">{mockPlayer.score}</span>
+                        <span className="text-xs text-slate-400 bg-slate-700/50 px-2 py-1 rounded-full">Lv.{mockPlayer.level}</span>
                       </div>
                     </div>
-                  </div>
-
-                  {/* VS */}
-                  <div className="text-slate-400 font-bold text-xl px-6 bg-slate-700/30 rounded-full py-2">
-                    VS
                   </div>
 
                   {/* Opponent */}
-                  <div className="flex items-center space-x-4 rtl:space-x-reverse">
+                  <div className="flex items-center space-x-3 rtl:space-x-reverse">
                     <div className="text-right rtl:text-left">
-                      <div className="flex items-center space-x-2 rtl:space-x-reverse rtl:justify-start mb-1">
-                        <span className="text-xs text-slate-300 bg-slate-700/70 px-3 py-1 rounded-full font-medium">Lv.{mockOpponent.level}</span>
-                        <h3 className="text-white font-bold text-xl">{mockOpponent.name}</h3>
-                      </div>
+                      <p className="font-bold text-white text-lg">{mockOpponent.name}</p>
                       <div className="flex items-center justify-end space-x-2 rtl:space-x-reverse rtl:justify-start">
-                        <span className="text-xs text-purple-300 font-medium">points</span>
-                        <span className="text-purple-400 font-bold text-2xl">{mockOpponent.score}</span>
+                        <span className="text-purple-400 font-bold text-xl">{mockOpponent.score}</span>
+                        <span className="text-xs text-slate-400 bg-slate-700/50 px-2 py-1 rounded-full">Lv.{mockOpponent.level}</span>
                       </div>
                     </div>
                     <div className="relative">
-                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl shadow-purple-500/30">
-                        <span className="text-2xl font-bold text-white">{mockOpponent.isBot ? '🤖' : mockOpponent.name.charAt(0)}</span>
+                      <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-glow">
+                        <span className="text-xl">{mockOpponent.isBot ? '🤖' : mockOpponent.name.charAt(0)}</span>
                       </div>
-                      <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-orange-500 rounded-full border-3 border-slate-800 shadow-lg"></div>
+                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-orange-500 rounded-full border-2 border-white shadow-sm"></div>
                     </div>
                   </div>
               </div>
             </div>
 
             {/* Game Rounds */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-5 border border-slate-700/50 shadow-2xl">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 border border-slate-700/50 shadow-2xl">
               
               {/* Rounds List */}
-              <div className="space-y-4 mb-6">
+              <div className="space-y-3 mb-4">
                 {[1, 2, 3, 4, 5, 6].map((round) => {
                   const currentPlayerResults = mockRounds[round - 1]?.currentPlayer || [];
                   const opponentResults = mockRounds[round - 1]?.opponent || [];
                   const isCurrentRound = gameState?.currentRound === round;
                   
                   return (
-                    <div key={round} className="flex items-center space-x-4 rtl:space-x-reverse">
-                      {/* Left Side - Round Status Emoji (Outside the card) */}
-                        <div className={`text-3xl w-10 flex justify-center ${
-                          isCurrentRound ? 'text-blue-400 animate-pulse' : 'text-slate-300'
-                        }`}>
-                          {(() => {
-                            const currentPlayerResults = mockRounds[round - 1]?.currentPlayer || [];
-                            const opponentResults = mockRounds[round - 1]?.opponent || [];
-                            
-                            // If round hasn't started (no results for both players)
-                            if (currentPlayerResults.length === 0 && opponentResults.length === 0) {
-                              return '⏳'; // Waiting emoji
-                            }
-                            
-                            // Count correct answers for current player
-                            const currentPlayerCorrect = currentPlayerResults.filter(result => result === 'correct').length;
-                            const opponentCorrect = opponentResults.filter(result => result === 'correct').length;
-                            
-                            // Determine round winner
-                             if (currentPlayerCorrect > opponentCorrect) {
-                               return '💪'; // Victory emoji (flexed bicep)
-                             } else if (currentPlayerCorrect < opponentCorrect) {
-                               return '💔'; // Defeat emoji
-                             } else {
-                               return '🤝'; // Tie emoji
-                             }
-                          })()} 
-                        </div>
-                      
+                    <div key={round} className="flex items-center">
                       {/* Main Card */}
-                      <div className={`flex-1 bg-slate-700/50 rounded-2xl p-3 border transition-all duration-300 ${
-                        isCurrentRound 
-                          ? 'border-blue-500/50 bg-blue-500/10 shadow-lg shadow-blue-500/20' 
-                          : 'border-slate-600/50 hover:border-slate-500/50'
+                      <div className={`flex-1 bg-slate-700/50 rounded-full p-2 border ${
+                        isCurrentRound ? 'border-blue-500/50 bg-blue-500/10' : 'border-slate-600/50'
                       }`}>
-                        <div className="flex items-center justify-between px-3 py-2">
+                        <div className="flex items-center justify-between px-2 py-2">
                           {/* Left Side - Current Player (3 lights) */}
-                          <div className="flex space-x-2 rtl:space-x-reverse">
+                          <div className="flex space-x-1 rtl:space-x-reverse">
                             {[1, 2, 3].map((lightIndex) => {
                               const hasResult = currentPlayerResults.length >= lightIndex;
                               const result = hasResult ? currentPlayerResults[lightIndex - 1] : null;
                               
                               return (
-                                <div key={lightIndex} className="w-5 h-5 rounded-full transition-all duration-300">
+                                <div key={lightIndex} className="w-4 h-4 rounded-full">
                                   {result === 'correct' && (
-                                    <div className="w-full h-full bg-green-500 rounded-full shadow-lg shadow-green-500/30"></div>
+                                    <div className="w-full h-full bg-green-500 rounded-full"></div>
                                   )}
                                   {result === 'incorrect' && (
-                                    <div className="w-full h-full bg-red-500 rounded-full shadow-lg shadow-red-500/30"></div>
+                                    <div className="w-full h-full bg-red-500 rounded-full"></div>
                                   )}
                                   {!result && (
                                     <div className="w-full h-full bg-slate-600 rounded-full"></div>
@@ -243,8 +202,8 @@ export default function GameRoomPage() {
                           </div>
                           
                           {/* Center - Round Topic */}
-                          <div className="text-center px-4">
-                            <span className={`text-base font-semibold transition-colors duration-300 ${
+                          <div className="text-center">
+                            <span className={`text-sm font-medium ${
                               isCurrentRound ? 'text-blue-400' : 'text-gray-300'
                             }`}>
                               {(() => {
@@ -254,24 +213,24 @@ export default function GameRoomPage() {
                                   return topics[(round - 1) % topics.length];
                                 }
                                 // Show "Pending" for future rounds
-                                return '⏸️ Pending';
+                                return '⏳';
                               })()}
                             </span>
                           </div>
                           
                           {/* Right Side - Opponent (3 lights) */}
-                          <div className="flex space-x-2 rtl:space-x-reverse">
+                          <div className="flex space-x-1 rtl:space-x-reverse">
                             {[1, 2, 3].map((lightIndex) => {
                               const hasResult = opponentResults.length >= lightIndex;
                               const result = hasResult ? opponentResults[lightIndex - 1] : null;
                               
                               return (
-                                <div key={lightIndex} className="w-5 h-5 rounded-full transition-all duration-300">
+                                <div key={lightIndex} className="w-4 h-4 rounded-full">
                                   {result === 'correct' && (
-                                    <div className="w-full h-full bg-green-500 rounded-full shadow-lg shadow-green-500/30"></div>
+                                    <div className="w-full h-full bg-green-500 rounded-full"></div>
                                   )}
                                   {result === 'incorrect' && (
-                                    <div className="w-full h-full bg-red-500 rounded-full shadow-lg shadow-red-500/30"></div>
+                                    <div className="w-full h-full bg-red-500 rounded-full"></div>
                                   )}
                                   {!result && (
                                     <div className="w-full h-full bg-slate-600 rounded-full"></div>
@@ -286,36 +245,37 @@ export default function GameRoomPage() {
                   );
                 })}
               </div>
-              
-              {/* Play Button */}
-              {isMyTurn && (
-                <div className="text-center mb-4">
-                  <button 
-                    onClick={() => console.log('Starting game...')}
-                    className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-4 px-10 rounded-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl shadow-blue-500/25"
-                  >
-                    <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                      <span className="text-xl">🎮</span>
-                      <span className="text-lg">{t('room.playNow')}</span>
-                    </div>
-                  </button>
-                </div>
-              )}
-              
-              {/* Turn Indicator */}
-              <div className="text-center">
-                <div className={`inline-flex items-center px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                  isMyTurn 
-                    ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30 shadow-lg shadow-blue-500/20' 
-                    : 'bg-purple-500/20 text-purple-400 border border-purple-500/30 shadow-lg shadow-purple-500/20'
-                }`}>
-                  <div className={`w-2 h-2 rounded-full mr-2 rtl:mr-0 rtl:ml-2 animate-pulse ${
-                    isMyTurn ? 'bg-blue-400' : 'bg-purple-400'
-                  }`}></div>
-                  {isMyTurn ? t('room.yourTurn') : t('room.opponentTurn')}
-                </div>
-              </div>
             </div>
+            
+            {/* Play Button */}
+            {isMyTurn && (
+              <div className="text-center mt-6">
+                <button 
+                  onClick={() => console.log('Starting game...')}
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                >
+                  <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                    <span className="text-lg">🎮</span>
+                    <span>{t('room.playNow')}</span>
+                  </div>
+                </button>
+              </div>
+            )}
+
+            {/* Chat Button */}
+            <div className="text-center mt-4">
+              <button 
+                onClick={() => console.log('Opening chat...')}
+                className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+              >
+                <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                  <span className="text-lg">💬</span>
+                  <span>{t('room.chatWithUser')}</span>
+                </div>
+              </button>
+            </div>
+            
+
         </div>
       </div>
       </div>
