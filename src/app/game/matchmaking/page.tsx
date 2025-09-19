@@ -107,12 +107,12 @@ export default function MatchmakingPage() {
 
   return (
     <Page>
-      <div className="h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
+      <div className="h-screen bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-black/90 relative overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-32 right-8 w-40 h-40 bg-purple-500/10 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-indigo-500/5 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/8 via-purple-500/8 to-pink-500/8"></div>
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-blue-500/15 to-transparent rounded-full blur-xl"></div>
+          <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-lg"></div>
         </div>
 
         <div className="relative z-10 flex flex-col h-full">
@@ -128,13 +128,13 @@ export default function MatchmakingPage() {
                 <div className="w-24 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto animate-pulse"></div>
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">{t('game.matchmaking.searching')}</h2>
-              <p className="text-gray-300 text-lg mb-8">{t('game.matchmaking.searchingMessage')}</p>
+               <p className="text-slate-300 text-lg mb-8">{t('game.matchmaking.searchingMessage')}</p>
               
               {/* Timer */}
-              <div className="text-4xl font-mono text-blue-400 mb-8 bg-slate-800/50 px-6 py-3 rounded-2xl border border-slate-600/50">
-                {Math.floor(searchTime / 60).toString().padStart(2, '0')}:
-                {(searchTime % 60).toString().padStart(2, '0')}
-              </div>
+               <div className="text-4xl font-mono text-blue-400 mb-8 bg-slate-800/50 backdrop-blur-sm px-6 py-3 rounded-2xl border border-slate-700/50">
+                 {Math.floor(searchTime / 60).toString().padStart(2, '0')}:
+                 {(searchTime % 60).toString().padStart(2, '0')}
+               </div>
             </div>
           )}
 
@@ -146,17 +146,17 @@ export default function MatchmakingPage() {
                 </div>
               </div>
               <h2 className="text-2xl font-bold text-white mb-3">{t('game.matchmaking.found')}</h2>
-              <p className="text-gray-300 text-lg mb-8">{t('game.matchmaking.foundMessage')}</p>
+               <p className="text-slate-300 text-lg mb-8">{t('game.matchmaking.foundMessage')}</p>
               
               {/* Opponent info */}
-              <div className="bg-slate-800/60 rounded-2xl p-6 border border-slate-600/50 backdrop-blur-sm">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
                 <div className="flex items-center justify-center space-x-4 rtl:space-x-reverse">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center overflow-hidden shadow-lg ring-2 ring-white/10">
                     <span className="text-white font-bold text-2xl">{opponent?.name?.charAt(0) || 'A'}</span>
                   </div>
                   <div className="text-left rtl:text-right">
                     <p className="text-white font-semibold text-xl">{opponent?.name || 'علی احمدی'}</p>
-                  
+                    <p className="text-slate-300 text-lg">{t('game.matchmaking.level')} {opponent?.level || 1}</p>
                   </div>
                 </div>
               </div>
@@ -176,25 +176,25 @@ export default function MatchmakingPage() {
                 </div>
               </div>
               <h2 className="text-2xl font-bold text-white mb-3">{t('game.matchmaking.starting')}</h2>
-              <p className="text-gray-300 text-lg">{t('game.matchmaking.startingMessage')}</p>
+               <p className="text-slate-300 text-lg">{t('game.matchmaking.startingMessage')}</p>
             </div>
           )}
           </div>
 
           {/* Bottom section */}
-          {matchmakingStatus === 'searching' && (
-            <div className="absolute bottom-8 left-6 right-6">
-              <button
-                onClick={handleCancel}
-                className="w-full bg-slate-800/80 hover:bg-slate-700/80 text-white py-4 px-6 rounded-2xl font-semibold text-lg transition-all duration-200 hover:scale-105 active:scale-95 border border-slate-600/50 backdrop-blur-sm"
-              >
-                <span className="flex items-center justify-center space-x-2 rtl:space-x-reverse">
-                  <span>{t('game.matchmaking.cancel')}</span>
-                  <span className="text-xl">✕</span>
-                </span>
-              </button>
-            </div>
-          )}
+           {matchmakingStatus === 'searching' && (
+             <div className="absolute bottom-8 left-6 right-6">
+               <button
+                 onClick={handleCancel}
+                 className="w-full bg-slate-800/50 hover:bg-slate-700/50 backdrop-blur-sm text-white py-4 px-6 rounded-2xl font-semibold text-lg transition-all duration-200 hover:scale-105 active:scale-95 border border-slate-700/50"
+               >
+                 <span className="flex items-center justify-center space-x-2 rtl:space-x-reverse">
+                   <span>{t('game.matchmaking.cancel')}</span>
+                   <span className="text-xl">✕</span>
+                 </span>
+               </button>
+             </div>
+           )}
         </div>
       </div>
     </Page>
