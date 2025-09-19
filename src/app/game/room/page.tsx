@@ -49,6 +49,40 @@ export default function GameRoomPage() {
     isBot: true
   };
 
+  // Mock rounds data - each round has 3 questions per player
+  const mockRounds = [
+    // Round 1 - Tie (both players have same correct answers)
+     {
+       currentPlayer: ['correct', 'correct', 'incorrect'], // 2 correct, 1 incorrect
+       opponent: ['correct', 'correct', 'incorrect'] // 2 correct, 1 incorrect
+     },
+    // Round 2 - Lost (opponent has more correct answers)
+    {
+      currentPlayer: ['incorrect', 'correct', 'correct'], // 2 correct, 1 incorrect
+      opponent: ['incorrect', 'correct', 'incorrect'] // 1 correct, 2 incorrect
+    },
+    // Round 3 - Lost (opponent has more correct answers)
+    {
+      currentPlayer: ['correct', 'incorrect', 'incorrect'], // 1 correct, 2 incorrect
+      opponent: ['correct', 'correct', 'incorrect'] // 2 correct, 1 incorrect
+    },
+    // Round 4 - Not started yet
+    {
+      currentPlayer: [],
+      opponent: []
+    },
+    // Round 5 - Not started yet
+    {
+      currentPlayer: [],
+      opponent: []
+    },
+    // Round 6 - Not started yet
+    {
+      currentPlayer: [],
+      opponent: []
+    }
+  ];
+
   const mockGameState = {
     currentRound: 1,
     totalRounds: 6,
@@ -89,182 +123,183 @@ export default function GameRoomPage() {
 
         <div className="relative z-10 px-2 py-2">
           <div className="max-w-md mx-auto">
-            {/* Game Header */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-6 mb-6 border border-slate-700/50 shadow-2xl">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-glow">
-                    <span className="text-2xl">🎮</span>
-                  </div>
-                  <div>
-                    <h1 className="text-2xl font-bold text-white">{t('room.title')}</h1>
-                    <p className="text-gray-300 text-sm">{t('room.subtitle')}</p>
-                  </div>
-                </div>
-                <button 
-                  onClick={handleQuit}
-                  className="text-slate-300 hover:text-slate-200 text-sm px-4 py-2 rounded-xl border border-slate-600/30 hover:bg-slate-700/20 transition-all duration-300 backdrop-blur-sm font-medium"
-                >
-                  {t('room.quit')}
-                </button>
-              </div>
-              
-              {/* Round Progress */}
-              <div className="mb-4">
-                <div className="flex items-center justify-between text-sm mb-2">
-                  <span className="text-slate-300 font-medium">{t('room.round')} {mockGameState.currentRound}/{mockGameState.totalRounds}</span>
-                  <span className="text-purple-400 font-semibold bg-purple-500/20 px-2 py-1 rounded-full text-xs">{t('room.topicSelection')}</span>
-              </div>
-                <div className="w-full bg-slate-700/50 rounded-full h-2 overflow-hidden">
-                  <div 
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-500 shadow-glow"
-                    style={{ width: `${(mockGameState.currentRound / mockGameState.totalRounds) * 100}%` }}
-                  ></div>
-                </div>
-              </div>
-
-              {/* Players */}
-              <div className="bg-slate-800/30 rounded-xl p-3 border border-slate-700/30">
-                <div className="flex items-center justify-between">
-                  {/* Current Player */}
-                  <div className="flex items-center space-x-2 rtl:space-x-reverse">
+            {/* Players Header */}
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-slate-700/50 shadow-xl">
+              <div className="flex items-center justify-between">
+                {/* Current Player */}
+                  <div className="flex items-center space-x-3 rtl:space-x-reverse">
                     <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-glow">
-                        <span className="text-lg font-bold text-white">{mockPlayer.name.charAt(0)}</span>
+                      <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-glow">
+                        <span className="text-xl font-bold text-white">{mockPlayer.name.charAt(0)}</span>
                       </div>
-                      <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
+                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
                     </div>
                     <div>
-                      <p className="font-bold text-white text-base">{mockPlayer.name}</p>
-                      <div className="flex items-center space-x-1 rtl:space-x-reverse">
-                        <span className="text-xs text-slate-300">{t('room.score')}:</span>
-                        <span className="text-blue-400 font-bold text-sm">{mockPlayer.score}</span>
+                      <p className="font-bold text-white text-lg">{mockPlayer.name}</p>
+                      <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                        <span className="text-blue-400 font-bold text-xl">{mockPlayer.score}</span>
+                        <span className="text-xs text-slate-400 bg-slate-700/50 px-2 py-1 rounded-full">Lv.{mockPlayer.level}</span>
                       </div>
                     </div>
-                  </div>
-
-                  {/* VS */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center shadow-glow">
-                      <span className="text-white font-bold text-xs">VS</span>
-                    </div>
-                    <div className="text-xs text-slate-400 font-medium mt-0.5">{t('room.battle')}</div>
                   </div>
 
                   {/* Opponent */}
-                  <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                  <div className="flex items-center space-x-3 rtl:space-x-reverse">
                     <div className="text-right rtl:text-left">
-                      <p className="font-bold text-white text-base">{mockOpponent.name}</p>
-                      <div className="flex items-center justify-end space-x-1 rtl:space-x-reverse rtl:justify-start">
-                        <span className="text-xs text-slate-300">{t('room.score')}:</span>
-                        <span className="text-purple-400 font-bold text-sm">{mockOpponent.score}</span>
+                      <p className="font-bold text-white text-lg">{mockOpponent.name}</p>
+                      <div className="flex items-center justify-end space-x-2 rtl:space-x-reverse rtl:justify-start">
+                        <span className="text-purple-400 font-bold text-xl">{mockOpponent.score}</span>
+                        <span className="text-xs text-slate-400 bg-slate-700/50 px-2 py-1 rounded-full">Lv.{mockOpponent.level}</span>
                       </div>
                     </div>
                     <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-glow">
-                        <span className="text-lg">{mockOpponent.isBot ? '🤖' : mockOpponent.name.charAt(0)}</span>
+                      <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-glow">
+                        <span className="text-xl">{mockOpponent.isBot ? '🤖' : mockOpponent.name.charAt(0)}</span>
                       </div>
-                      <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-sm"></div>
+                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-orange-500 rounded-full border-2 border-white shadow-sm"></div>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
 
-            {/* Game Content */}
+            {/* Game Rounds */}
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 border border-slate-700/50 shadow-2xl">
-              {!selectedTopic ? (
-                <div>
-                  <div className="text-center mb-5">
-                    <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-                      <span className="text-xl">🎯</span>
-                    </div>
-                    <h2 className="text-xl font-bold text-white mb-2">
-                      {isMyTurn ? t('room.selectTopic') : t('room.waitingForOpponent')}
-                    </h2>
-                    <p className="text-slate-300 text-sm leading-relaxed">
-                      {isMyTurn 
-                        ? t('room.chooseCategory') 
-                        : t('room.opponentSelecting')
-                      }
-                    </p>
-                  </div>
-
-                  {isMyTurn ? (
-                    <div className="space-y-3">
-                      {mockTopics.map((topic) => (
-                        <button
-                          key={topic.id}
-                          onClick={() => handleTopicSelect(topic.name)}
-                          className="w-full p-3 bg-slate-800/50 hover:bg-slate-700/50 rounded-xl text-left transition-all duration-300 border border-slate-700/50 hover:border-blue-500/50 group hover:scale-[1.02] active:scale-95 backdrop-blur-sm"
-                        >
-                          <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform border border-blue-500/30">
-                              <span className="text-lg">{topic.icon}</span>
-                            </div>
-                            <div className="flex-1">
-                              <div className="font-bold text-white text-base mb-0.5">{topic.name}</div>
-                              <div className="text-slate-300 text-xs leading-relaxed">{topic.description}</div>
-                            </div>
-                            <div className="text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </div>
+              
+              {/* Rounds List */}
+              <div className="space-y-3 mb-4">
+                {[1, 2, 3, 4, 5, 6].map((round) => {
+                  const currentPlayerResults = mockRounds[round - 1]?.currentPlayer || [];
+                  const opponentResults = mockRounds[round - 1]?.opponent || [];
+                  const isCurrentRound = gameState?.currentRound === round;
+                  
+                  return (
+                    <div key={round} className="flex items-center space-x-3 rtl:space-x-reverse mb-2">
+                      {/* Left Side - Round Status Emoji (Outside the card) */}
+                        <div className={`text-2xl w-8 ${
+                          isCurrentRound ? 'text-blue-400' : 'text-slate-300'
+                        }`}>
+                          {(() => {
+                            const currentPlayerResults = mockRounds[round - 1]?.currentPlayer || [];
+                            const opponentResults = mockRounds[round - 1]?.opponent || [];
+                            
+                            // If round hasn't started (no results for both players)
+                            if (currentPlayerResults.length === 0 && opponentResults.length === 0) {
+                              return '⏳'; // Waiting emoji
+                            }
+                            
+                            // Count correct answers for current player
+                            const currentPlayerCorrect = currentPlayerResults.filter(result => result === 'correct').length;
+                            const opponentCorrect = opponentResults.filter(result => result === 'correct').length;
+                            
+                            // Determine round winner
+                             if (currentPlayerCorrect > opponentCorrect) {
+                               return '💪'; // Victory emoji (flexed bicep)
+                             } else if (currentPlayerCorrect < opponentCorrect) {
+                               return '💔'; // Defeat emoji
+                             } else {
+                               return '🤝'; // Tie emoji
+                             }
+                          })()} 
+                        </div>
+                      
+                      {/* Main Card */}
+                      <div className={`flex-1 bg-slate-700/50 rounded-full p-2 border ${
+                        isCurrentRound ? 'border-blue-500/50 bg-blue-500/10' : 'border-slate-600/50'
+                      }`}>
+                        <div className="flex items-center justify-between px-2 py-2">
+                          {/* Left Side - Current Player (3 lights) */}
+                          <div className="flex space-x-1 rtl:space-x-reverse">
+                            {[1, 2, 3].map((lightIndex) => {
+                              const hasResult = currentPlayerResults.length >= lightIndex;
+                              const result = hasResult ? currentPlayerResults[lightIndex - 1] : null;
+                              
+                              return (
+                                <div key={lightIndex} className="w-4 h-4 rounded-full">
+                                  {result === 'correct' && (
+                                    <div className="w-full h-full bg-green-500 rounded-full"></div>
+                                  )}
+                                  {result === 'incorrect' && (
+                                    <div className="w-full h-full bg-red-500 rounded-full"></div>
+                                  )}
+                                  {!result && (
+                                    <div className="w-full h-full bg-slate-600 rounded-full"></div>
+                                  )}
+                                </div>
+                              );
+                            })}
                           </div>
-                        </button>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="text-center py-8">
-                      <div className="relative mb-4">
-                        <div className="w-12 h-12 mx-auto">
-                          <div className="absolute inset-0 border-3 border-purple-500/30 rounded-full"></div>
-                          <div className="absolute inset-0 border-3 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
-                          <div className="absolute inset-1 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center">
-                            <span className="text-lg">⏳</span>
+                          
+                          {/* Center - Round Topic */}
+                          <div className="text-center">
+                            <span className={`text-sm font-medium ${
+                              isCurrentRound ? 'text-blue-400' : 'text-gray-300'
+                            }`}>
+                              {(() => {
+                                const topics = ['🏈 Sports', '🔬 Science', '📚 History', '🌍 Geography', '🎨 Arts'];
+                                // Show topic only for current round or completed rounds
+                                if (round <= mockGameState.currentRound) {
+                                  return topics[(round - 1) % topics.length];
+                                }
+                                // Show "Pending" for future rounds
+                                return '⏸️ Pending';
+                              })()}
+                            </span>
+                          </div>
+                          
+                          {/* Right Side - Opponent (3 lights) */}
+                          <div className="flex space-x-1 rtl:space-x-reverse">
+                            {[1, 2, 3].map((lightIndex) => {
+                              const hasResult = opponentResults.length >= lightIndex;
+                              const result = hasResult ? opponentResults[lightIndex - 1] : null;
+                              
+                              return (
+                                <div key={lightIndex} className="w-4 h-4 rounded-full">
+                                  {result === 'correct' && (
+                                    <div className="w-full h-full bg-green-500 rounded-full"></div>
+                                  )}
+                                  {result === 'incorrect' && (
+                                    <div className="w-full h-full bg-red-500 rounded-full"></div>
+                                  )}
+                                  {!result && (
+                                    <div className="w-full h-full bg-slate-600 rounded-full"></div>
+                                  )}
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-1">{t('room.waitingMessage')}</h3>
-                      <p className="text-slate-300 text-sm">{t('room.opponentThinking')}</p>
                     </div>
-                  )}
-                </div>
-              ) : (
-                <div className="text-center py-8">
-                  <div className="mb-4">
-                    <div className="w-14 h-14 mx-auto mb-3 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center shadow-2xl animate-bounce">
-                      <span className="text-2xl">✅</span>
+                  );
+                })}
+              </div>
+              
+              {/* Play Button */}
+              {isMyTurn && (
+                <div className="text-center">
+                  <button 
+                    onClick={() => console.log('Starting game...')}
+                    className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                  >
+                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                      <span className="text-lg">🎮</span>
+                      <span>{t('room.playNow')}</span>
                     </div>
-                    <div className="w-12 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto"></div>
-                  </div>
-                  <h2 className="text-lg font-bold text-white mb-2">{t('room.topicSelected')}</h2>
-                  <div className="bg-slate-800/50 rounded-xl p-3 border border-slate-700/50 mb-3">
-                    <p className="text-purple-400 text-base font-bold">{selectedTopic}</p>
-                  </div>
-                  <p className="text-slate-300 text-sm leading-relaxed">{t('room.startingQuestions')}</p>
-                  <div className="mt-4">
-                    <div className="flex justify-center space-x-1 rtl:space-x-reverse">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-bounce"></div>
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-                    </div>
-                  </div>
+                  </button>
                 </div>
               )}
+              
+              {/* Turn Indicator */}
+              <div className="mt-4 text-center">
+                <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium ${
+                  isMyTurn 
+                    ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' 
+                    : 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
+                }`}>
+                  {isMyTurn ? t('room.yourTurn') : t('room.opponentTurn')}
+                </div>
+              </div>
             </div>
-
-          {/* Turn Indicator */}
-          <div className="mt-4 text-center">
-            <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium ${
-              isMyTurn 
-                ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' 
-                : 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-            }`}>
-              {isMyTurn ? t('room.yourTurn') : t('room.opponentTurn')}
-            </div>
-          </div>
         </div>
       </div>
       </div>

@@ -137,7 +137,10 @@
       "startingQuestions": "Starting questions in a moment...",
       "yourTurn": "Your Turn",
       "opponentTurn": "Opponent's Turn",
-      "quit": "Quit Game"
+      "quit": "Quit Game",
+      "gameRounds": "Game Rounds",
+      "roundsDescription": "6 rounds of exciting questions",
+      "playNow": "Play Now"
     },
     "topics": {
       "science": "Science",

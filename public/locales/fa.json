@@ -156,7 +156,10 @@
       "startingQuestions": "در حال آماده‌سازی سوالات برای شما...",
       "yourTurn": "نوبت شما",
       "opponentTurn": "نوبت حریف",
-      "quit": "خروج از بازی"
+      "quit": "خروج از بازی",
+      "gameRounds": "راندهای بازی",
+      "roundsDescription": "۶ راند پر از سوالات هیجان‌انگیز",
+      "playNow": "بازی کن"
     },
     "topics": {
       "science": "علوم",
