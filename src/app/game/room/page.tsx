@@ -162,6 +162,21 @@ export default function GameRoomPage() {
               </div>
             </div>
 
+            {/* Play Button */}
+            {isMyTurn && (
+              <div className="mb-6 mx-4">
+                <button 
+                  onClick={() => console.log('Starting game...')}
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                >
+                  <div className="flex items-center justify-center space-x-2 rtl:space-x-reverse">
+                    <span className="text-lg">🎮</span>
+                    <span>{t('room.playNow')}</span>
+                  </div>
+                </button>
+              </div>
+            )}
+
             {/* Game Rounds */}
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 border border-slate-700/50 shadow-2xl">
               
@@ -247,37 +262,19 @@ export default function GameRoomPage() {
               </div>
             </div>
             
-            {/* Play Button */}
-            {isMyTurn && (
-              <div className="text-center mt-6">
-                <button 
-                  onClick={() => console.log('Starting game...')}
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
-                >
-                  <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                    <span className="text-lg">🎮</span>
-                    <span>{t('room.playNow')}</span>
-                  </div>
-                </button>
-              </div>
-            )}
 
-            {/* Chat Button */}
-            <div className="text-center mt-4">
-              <button 
-                onClick={() => console.log('Opening chat...')}
-                className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
-              >
-                <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                  <span className="text-lg">💬</span>
-                  <span>{t('room.chatWithUser')}</span>
-                </div>
-              </button>
-            </div>
             
 
           </div>
         </div>
+        
+        {/* Floating Chat Button */}
+        <button 
+          onClick={() => console.log('Opening chat...')}
+          className="fixed bottom-4 right-4 w-14 h-14 bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 active:scale-95 z-50 flex items-center justify-center"
+        >
+          <span className="text-xl">💬</span>
+        </button>
       </div>
     </Page>
   );
