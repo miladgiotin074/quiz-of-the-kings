@@ -141,11 +141,12 @@ export default function MatchmakingPage() {
           {matchmakingStatus === 'found' && (
             <div className="flex-1 flex flex-col justify-center items-center">
               <div className="mb-8">
-                <div className="w-28 h-28 mx-auto mb-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center animate-bounce">
+                <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center animate-bounce">
                   <span className="text-6xl text-white">✓</span>
                 </div>
+                <div className="w-24 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto animate-pulse"></div>
               </div>
-              <h2 className="text-2xl font-bold text-white mb-3">{t('game.matchmaking.found')}</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">{t('game.matchmaking.found')}</h2>
                <p className="text-slate-300 text-lg mb-8">{t('game.matchmaking.foundMessage')}</p>
               
               {/* Opponent info */}
@@ -166,17 +167,13 @@ export default function MatchmakingPage() {
           {matchmakingStatus === 'starting' && (
             <div className="flex-1 flex flex-col justify-center items-center">
               <div className="mb-8">
-                <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center animate-pulse">
-                  <span className="text-5xl">🚀</span>
+                <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center animate-pulse">
+                  <span className="text-6xl">🚀</span>
                 </div>
-                <div className="flex justify-center space-x-2 rtl:space-x-reverse">
-                  <div className="w-3 h-3 bg-orange-500 rounded-full animate-bounce"></div>
-                  <div className="w-3 h-3 bg-orange-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-                  <div className="w-3 h-3 bg-orange-500 rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
-                </div>
+                <div className="w-24 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto animate-pulse"></div>
               </div>
-              <h2 className="text-2xl font-bold text-white mb-3">{t('game.matchmaking.starting')}</h2>
-               <p className="text-slate-300 text-lg">{t('game.matchmaking.startingMessage')}</p>
+              <h2 className="text-3xl font-bold text-white mb-4">{t('game.matchmaking.starting')}</h2>
+               <p className="text-slate-300 text-lg mb-8">{t('game.matchmaking.startingMessage')}</p>
             </div>
           )}
           </div>
