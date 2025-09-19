@@ -83,11 +83,8 @@ export default function MatchmakingPage() {
   // Handle game starting after opponent is found
   useEffect(() => {
     if (matchmakingStatus === 'found') {
-      const gameTimeout = setTimeout(() => {
-        router.push('/game/room');
-      }, 3000); // Go directly to game after 3 seconds
-      
-      return () => clearTimeout(gameTimeout);
+      // Go directly to game room immediately
+      router.push('/game/room');
     }
   }, [matchmakingStatus, router]);
 
@@ -145,31 +142,7 @@ export default function MatchmakingPage() {
             </div>
           )}
 
-          {matchmakingStatus === 'found' && (
-            <div className="flex-1 flex flex-col justify-center items-center">
-              <div className="mb-8">
-                <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center animate-pulse">
-                  <span className="text-6xl text-white">✓</span>
-                </div>
-                <div className="w-24 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto animate-pulse"></div>
-              </div>
-              <h2 className="text-3xl font-bold text-white mb-4">{t('game.matchmaking.found')}</h2>
-               <p className="text-slate-300 text-lg mb-8">{t('game.matchmaking.foundMessage')}</p>
-              
-              {/* Opponent info */}
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
-                <div className="flex items-center justify-center space-x-4 rtl:space-x-reverse">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center overflow-hidden shadow-lg ring-2 ring-white/10">
-                    <span className="text-white font-bold text-2xl">{opponent?.name?.charAt(0) || 'A'}</span>
-                  </div>
-                  <div className="text-left rtl:text-right">
-                    <p className="text-white font-semibold text-xl">{opponent?.name || 'علی احمدی'}</p>
-                    <p className="text-slate-300 text-lg">{t('game.matchmaking.level')} {opponent?.level || 1}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+
 
 
           </div>

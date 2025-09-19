@@ -124,7 +124,7 @@ export default function GameRoomPage() {
         <div className="relative z-10 px-2 py-2 pb-8">
           <div className="max-w-md mx-auto">
             {/* Players Header */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-slate-700/50 shadow-xl">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 mb-6 mt-2 border border-slate-700/50 shadow-xl">
               <div className="flex items-center justify-between">
                 {/* Current Player */}
                   <div className="flex items-center space-x-3 rtl:space-x-reverse">
