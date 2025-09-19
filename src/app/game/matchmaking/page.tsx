@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { hapticFeedback } from '@telegram-apps/sdk-react';
 import { Page } from '@/components/Page';
 import { useSocket } from '@/hooks/useSocket';
 import { useAuth } from '@/hooks/useAuth';
@@ -68,6 +69,16 @@ export default function MatchmakingPage() {
       return () => clearTimeout(timeout);
     }
   }, [matchmakingStatus, router]);
+
+  // Handle haptic feedback when opponent is found
+  useEffect(() => {
+    if (matchmakingStatus === 'found') {
+      // Trigger haptic feedback if available
+      if (hapticFeedback.impactOccurred.isAvailable()) {
+        hapticFeedback.impactOccurred('medium');
+      }
+    }
+  }, [matchmakingStatus]);
 
   // Handle game starting after opponent is found
   useEffect(() => {
