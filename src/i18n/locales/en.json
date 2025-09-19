@@ -1,0 +1,101 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close"
+  },
+  "navigation": {
+    "home": "Home",
+    "chats": "Chats",
+    "notifications": "Notifications",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "Quiz of the Kings",
+    "welcome": "Welcome back!",
+    "startNewGame": "Start New Game",
+    "quickMatch": "Quick Match",
+    "leaderboard": "Leaderboard",
+    "achievements": "Achievements",
+    "dailyChallenge": "Daily Challenge",
+    "statistics": "Statistics"
+  },
+  "chats": {
+    "title": "Chats",
+    "noChats": "No chats yet",
+    "startChatting": "Start chatting with other players!"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNotifications": "No notifications",
+    "markAllRead": "Mark all as read"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "english": "English",
+    "persian": "Persian",
+    "profile": "Profile",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "about": "About",
+    "logout": "Logout"
+  },
+  "game": {
+    "matchmaking": {
+      "title": "Finding Opponent",
+      "searching": "Searching for opponent...",
+      "found": "Opponent found!",
+      "startingGame": "Starting game...",
+      "cancel": "Cancel",
+      "you": "You",
+      "opponent": "Opponent",
+      "vsBot": "vs Bot",
+      "ready": "Ready"
+    },
+    "room": {
+      "round": "Round",
+      "of": "of",
+      "selectTopic": "Select Topic",
+      "yourTurn": "Your Turn",
+      "opponentTurn": "Opponent's Turn",
+      "waitingForOpponent": "Waiting for opponent to select topic...",
+      "score": "Score",
+      "startQuestions": "Start Questions"
+    },
+    "questions": {
+      "question": "Question",
+      "round": "Round",
+      "score": "Score",
+      "correct": "Correct!",
+      "incorrect": "Incorrect!",
+      "timeUp": "Time's Up!",
+      "correctWas": "Correct answer was",
+      "points": "points"
+    },
+    "result": {
+      "victory": "Victory!",
+      "goodGame": "Good Game!",
+      "gameCompleted": "Game Completed",
+      "finalStandings": "Final Standings",
+      "you": "You",
+      "bot": "Bot",
+      "roundByRound": "Round by Round",
+      "round": "Round",
+      "rewards": "Rewards",
+      "experience": "Experience",
+      "coins": "Coins",
+      "playAgain": "Play Again",
+      "backToHome": "Back to Home",
+      "calculating": "Calculating results...",
+      "error": "Error loading results"
+    }
+  }
+}

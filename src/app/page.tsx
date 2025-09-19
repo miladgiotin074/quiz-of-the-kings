@@ -30,15 +30,15 @@ export default function Home() {
     }
   }, []);
 
-  const handleStartQuiz = useCallback(() => {
-    console.log('Starting quiz...');
+  const handleStartNewGame = useCallback(() => {
+    console.log('Starting new game...');
     
     // Add haptic feedback for navigation
     if (hapticFeedback.impactOccurred.isAvailable()) {
       hapticFeedback.impactOccurred('light');
     }
     
-    router.push('/quiz');
+    router.push('/game/matchmaking');
   }, [router]);
 
   // Show loading state while user data is loading
@@ -246,7 +246,7 @@ export default function Home() {
           {/* Start New Game Button */}
           <div className="mb-6 flex justify-center">
             <button 
-              onClick={handleStartQuiz}
+              onClick={handleStartNewGame}
               className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-between group relative overflow-hidden"
             >
               <span className="text-xl group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" style={{animation: 'shakeRotatePause 3.5s ease-in-out infinite'}}>🏆</span>

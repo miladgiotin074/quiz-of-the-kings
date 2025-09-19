@@ -125,6 +125,82 @@
     }
   },
   "game": {
+    "matchmaking": {
+      "title": "یافتن حریف",
+      "subtitle": "عرصه نبرد",
+      "searching": "در حال جستجوی حریف...",
+      "searchingDesc": "در حال یافتن حریف مناسب برای شما...",
+      "found": "حریف پیدا شد!",
+      "rating": "امتیاز",
+      "starting": "شروع بازی...",
+      "startingDesc": "در حال آماده‌سازی عرصه نبرد...",
+      "cancel": "لغو",
+      "searchingMessage": "در جستجوی حریف شایسته",
+      "foundMessage": "آماده نبرد شوید!",
+      "startingMessage": "در حال آماده‌سازی عرصه..."
+    },
+    "room": {
+      "title": "اتاق بازی",
+      "subtitle": "عرصه نبرد",
+      "round": "دور",
+      "topicSelection": "انتخاب موضوع",
+      "score": "امتیاز",
+      "battle": "نبرد",
+      "selectTopic": "موضوعی را انتخاب کنید",
+      "waitingForOpponent": "در انتظار حریف",
+      "chooseCategory": "دسته‌بندی مورد نظر خود را انتخاب کنید",
+      "opponentSelecting": "حریف شما در حال انتخاب موضوع است",
+      "waitingMessage": "لطفاً صبر کنید...",
+      "opponentThinking": "حریف شما در حال فکر کردن است",
+      "topicSelected": "موضوع انتخاب شد!",
+      "startingQuestions": "در حال آماده‌سازی سوالات برای شما...",
+      "yourTurn": "نوبت شما",
+      "opponentTurn": "نوبت حریف",
+      "quit": "خروج از بازی"
+    },
+    "topics": {
+      "science": "علوم",
+      "scienceDesc": "دانش خود را در فیزیک، شیمی و زیست‌شناسی بیازمایید",
+      "history": "تاریخ",
+      "historyDesc": "رویدادها و شخصیت‌های گذشته را کشف کنید",
+      "sports": "ورزش",
+      "sportsDesc": "خود را با اطلاعات و حقایق ورزشی به چالش بکشید",
+      "geography": "جغرافیا",
+      "entertainment": "سرگرمی",
+      "general": "دانش عمومی"
+    },
+    "round": "دور",
+    "question": "سوال",
+    "score": "امتیاز",
+    "points": "امتیاز",
+    "correct": "درست!",
+    "incorrect": "غلط!",
+    "timeUp": "زمان تمام شد!",
+    "correctWas": "پاسخ درست",
+    "quit": "خروج",
+    "questions": {
+      "question1": {
+        "text": "پایتخت فرانسه کدام شهر است؟",
+        "option1": "لندن",
+        "option2": "برلین",
+        "option3": "پاریس",
+        "option4": "مادرید"
+      },
+      "question2": {
+        "text": "کدام سیاره به عنوان سیاره سرخ شناخته می‌شود؟",
+        "option1": "زهره",
+        "option2": "مریخ",
+        "option3": "مشتری",
+        "option4": "زحل"
+      },
+      "question3": {
+        "text": "۲ + ۲ چقدر است؟",
+        "option1": "۳",
+        "option2": "۴",
+        "option3": "۵",
+        "option4": "۶"
+      }
+    },
     "hoursAgo": "ساعت پیش",
     "dayAgo": "روز پیش",
     "yourTurn": "نوبت شما",

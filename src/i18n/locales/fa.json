@@ -1,0 +1,101 @@
+{
+  "common": {
+    "loading": "در حال بارگذاری...",
+    "error": "خطا",
+    "cancel": "لغو",
+    "confirm": "تأیید",
+    "back": "بازگشت",
+    "next": "بعدی",
+    "save": "ذخیره",
+    "delete": "حذف",
+    "edit": "ویرایش",
+    "close": "بستن"
+  },
+  "navigation": {
+    "home": "خانه",
+    "chats": "چت‌ها",
+    "notifications": "اعلان‌ها",
+    "settings": "تنظیمات"
+  },
+  "home": {
+    "title": "مسابقه پادشاهان",
+    "welcome": "خوش آمدید!",
+    "startNewGame": "شروع بازی جدید",
+    "quickMatch": "بازی سریع",
+    "leaderboard": "جدول امتیازات",
+    "achievements": "دستاوردها",
+    "dailyChallenge": "چالش روزانه",
+    "statistics": "آمار"
+  },
+  "chats": {
+    "title": "چت‌ها",
+    "noChats": "هنوز چتی وجود ندارد",
+    "startChatting": "با بازیکنان دیگر چت کنید!"
+  },
+  "notifications": {
+    "title": "اعلان‌ها",
+    "noNotifications": "اعلانی وجود ندارد",
+    "markAllRead": "همه را خوانده شده علامت بزن"
+  },
+  "settings": {
+    "title": "تنظیمات",
+    "language": "زبان",
+    "english": "انگلیسی",
+    "persian": "فارسی",
+    "profile": "پروفایل",
+    "notifications": "اعلان‌ها",
+    "privacy": "حریم خصوصی",
+    "about": "درباره",
+    "logout": "خروج"
+  },
+  "game": {
+    "matchmaking": {
+      "title": "جستجوی حریف",
+      "searching": "در حال جستجوی حریف...",
+      "found": "حریف پیدا شد!",
+      "startingGame": "شروع بازی...",
+      "cancel": "لغو",
+      "you": "شما",
+      "opponent": "حریف",
+      "vsBot": "در برابر ربات",
+      "ready": "آماده"
+    },
+    "room": {
+      "round": "راند",
+      "of": "از",
+      "selectTopic": "انتخاب موضوع",
+      "yourTurn": "نوبت شما",
+      "opponentTurn": "نوبت حریف",
+      "waitingForOpponent": "در انتظار انتخاب موضوع توسط حریف...",
+      "score": "امتیاز",
+      "startQuestions": "شروع سوالات"
+    },
+    "questions": {
+      "question": "سوال",
+      "round": "راند",
+      "score": "امتیاز",
+      "correct": "درست!",
+      "incorrect": "غلط!",
+      "timeUp": "زمان تمام شد!",
+      "correctWas": "پاسخ درست",
+      "points": "امتیاز"
+    },
+    "result": {
+      "victory": "پیروزی!",
+      "goodGame": "بازی خوب!",
+      "gameCompleted": "بازی تمام شد",
+      "finalStandings": "نتایج نهایی",
+      "you": "شما",
+      "bot": "ربات",
+      "roundByRound": "راند به راند",
+      "round": "راند",
+      "rewards": "جوایز",
+      "experience": "تجربه",
+      "coins": "سکه",
+      "playAgain": "بازی مجدد",
+      "backToHome": "بازگشت به خانه",
+      "calculating": "در حال محاسبه نتایج...",
+      "error": "خطا در بارگذاری نتایج"
+    }
+  }
+}

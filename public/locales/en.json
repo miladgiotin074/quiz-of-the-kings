@@ -105,6 +105,84 @@
     "privacy": "Privacy",
     "about": "About"
   },
+  "game": {
+    "matchmaking": {
+      "title": "Finding Opponent",
+      "subtitle": "Battle Arena",
+      "searching": "Searching for opponent...",
+      "searchingDesc": "Finding the perfect opponent for you...",
+      "found": "Opponent found!",
+      "rating": "Rating",
+      "starting": "Starting game...",
+      "startingDesc": "Preparing your quiz battle arena...",
+      "cancel": "Cancel",
+      "searchingMessage": "Looking for a worthy opponent",
+      "foundMessage": "Get ready for battle!",
+      "startingMessage": "Preparing the arena..."
+    },
+    "room": {
+      "title": "Game Room",
+      "subtitle": "Battle Arena",
+      "round": "Round",
+      "topicSelection": "Topic Selection",
+      "score": "Score",
+      "selectTopic": "Select a Topic",
+      "battle": "Battle",
+      "waitingForOpponent": "Waiting for opponent to select topic...",
+      "chooseCategory": "Choose a category to start the round",
+      "opponentSelecting": "Your opponent is selecting a topic...",
+      "waitingMessage": "Please wait while your opponent makes their choice",
+      "opponentThinking": "Your opponent is thinking",
+      "topicSelected": "Topic Selected!",
+      "startingQuestions": "Starting questions in a moment...",
+      "yourTurn": "Your Turn",
+      "opponentTurn": "Opponent's Turn",
+      "quit": "Quit Game"
+    },
+    "topics": {
+      "science": "Science",
+      "scienceDesc": "Test your knowledge of physics, chemistry, and biology",
+      "history": "History", 
+      "historyDesc": "Explore events and figures from the past",
+      "sports": "Sports",
+      "sportsDesc": "Challenge yourself with sports trivia and facts",
+      "geography": "Geography",
+      "entertainment": "Entertainment",
+      "general": "General Knowledge"
+    },
+    "round": "Round",
+    "question": "Question",
+    "score": "Score",
+    "points": "points",
+    "correct": "Correct!",
+    "incorrect": "Incorrect!",
+    "timeUp": "Time's Up!",
+    "correctWas": "Correct answer was",
+    "quit": "Quit",
+    "questions": {
+      "question1": {
+        "text": "What is the capital of France?",
+        "option1": "London",
+        "option2": "Berlin",
+        "option3": "Paris",
+        "option4": "Madrid"
+      },
+      "question2": {
+        "text": "Which planet is known as the Red Planet?",
+        "option1": "Venus",
+        "option2": "Mars",
+        "option3": "Jupiter",
+        "option4": "Saturn"
+      },
+      "question3": {
+        "text": "What is 2 + 2?",
+        "option1": "3",
+        "option2": "4",
+        "option3": "5",
+        "option4": "6"
+      }
+    }
+  },
   "auth": {
     "error": {
       "signatureInvalid": "Authentication Failed",

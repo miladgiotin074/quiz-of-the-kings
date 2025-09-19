@@ -2,6 +2,7 @@
 
 import { useUser } from '@/contexts/UserContext';
 import { User, TelegramUser } from '@/types/user';
+import { userService } from '@/services/userService';
 
 /**
  * Custom hook for authentication operations
@@ -72,7 +73,13 @@ export function useAuth() {
   // Login with error handling
   const loginWithErrorHandling = async (telegramUser: TelegramUser): Promise<boolean> => {
     try {
-      await login(telegramUser);
+      // First authenticate with backend to get/create user
+      const { user: authenticatedUser } = await userService.authenticateUser(telegramUser);
+      if (!authenticatedUser) {
+        throw new Error('Authentication failed: No user returned');
+      }
+      // Then login with the authenticated user
+      await login(authenticatedUser);
       return true;
     } catch (error) {
       console.error('Login failed:', error);
