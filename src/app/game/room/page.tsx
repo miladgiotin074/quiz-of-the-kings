@@ -87,7 +87,7 @@ export default function GameRoomPage() {
           <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-lg"></div>
         </div>
 
-        <div className="relative z-10 p-6">
+        <div className="relative z-10 px-2 py-2">
           <div className="max-w-md mx-auto">
             {/* Game Header */}
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-6 mb-6 border border-slate-700/50 shadow-2xl">

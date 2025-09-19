@@ -75,7 +75,7 @@ export default function MatchmakingPage() {
     if (matchmakingStatus === 'found') {
       // Trigger haptic feedback if available
       if (hapticFeedback.impactOccurred.isAvailable()) {
-        hapticFeedback.impactOccurred('medium');
+        hapticFeedback.impactOccurred('heavy');
       }
     }
   }, [matchmakingStatus]);
