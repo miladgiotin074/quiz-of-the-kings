@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 
   return (
     <html lang={locale} dir={direction} suppressHydrationWarning>
-      <body className='bg-[#1a1a1a]'>
+      <body className='bg-slate-900'>
                 <I18nProvider>
           <UserProvider>
             <Root>{children}</Root>
